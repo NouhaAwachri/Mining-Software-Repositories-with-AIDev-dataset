@@ -1,160 +1,90 @@
-AIDev Activity 
-Implementation and Analysis of AI Coding Agent Collaboration
+🤖 AIDev Activity – Part 2
+AI Coding Agent Collaboration Analysis
+
+AIDev Activity – Part 2 is a large-scale empirical study analyzing how AI coding agents collaborate on GitHub.
+It investigates acceptance behavior, review dynamics, and adoption trends across 859K+ AI-generated pull requests using the AIDev dataset.
 
 📘 Mining Software Repositories – MSR 2026
 👩‍💻 Author: Nouha Aouachri
-📅 Date: January 3, 2026
+📅 January 2026
 
 📌 Project Overview
 
-This project presents the implementation and analysis of AIDev Activity , a large-scale empirical study investigating AI coding agent collaboration patterns using the AIDev dataset.
+Most software engineering studies focus on human developers.
+AIDev Activity – Part 2 shifts the focus to AI-generated pull requests, providing insights into how modern AI coding tools behave in real-world repositories.
 
-The analysis covers 859,377 AI-generated GitHub pull requests created between January and August 2025 by five AI coding agents, with a focus on:
+The system leverages:
 
-Pull request acceptance behavior
+AIDev dataset (Hugging Face) for large-scale PR data 📦
 
-Review and closure dynamics
+Automated preprocessing & filtering of completed pull requests
 
-Impact of pull request description length
+Acceptance & review metrics to compare AI agents ✅
 
-Temporal adoption trends of AI coding agents
+Statistical analysis to validate observed differences 📊
 
-The project follows a fully reproducible data science pipeline, including dataset loading, metric computation, statistical testing, and visualization.
+High-quality visualizations to reveal trends and patterns 📈
 
-🎯 Research Questions
+✨ Features
 
-RQ1
-Do AI coding agents differ in pull request acceptance rates and review dynamics?
+🤖 Multi-Agent Analysis – OpenAI Codex, Copilot, Cursor, Devin, Claude Code
 
-RQ2
-How do pull request characteristics (e.g., description length) affect acceptance?
+✅ PR Acceptance Metrics – merged vs rejected pull requests
 
-RQ3
-How does AI coding agent activity evolve over time?
+⏱️ Review & Closure Dynamics – time-to-close and review counts
 
-📊 Dataset
+📝 PR Description Analysis – impact of description length on acceptance
 
-The analysis uses the AIDev dataset, loaded directly from Hugging Face:
+📈 Temporal Adoption Trends – monthly activity and agent dominance
 
-pd.read_parquet("hf://datasets/hao-li/AIDev/[table_name].parquet")
+📊 Statistical Validation – Chi-square and Kruskal–Wallis tests
 
-Tables Used
+🏗️ Analysis Pipeline
 
-all_pull_request.parquet
+AIDev Dataset (Hugging Face)
+↓
+Data Filtering & Cleaning (Jan–Aug 2025)
+↓
+Metric Computation (Acceptance, Time-to-Close, Descriptions)
+↓
+Statistical Analysis
+↓
+Visualization & Insights
 
-all_repository.parquet
+⚙️ Tech Stack
 
-all_user.parquet
+Language: Python 🐍
 
-pr_reviews.parquet
+Data Processing: pandas, numpy
 
-pr_review_comments_v2.parquet
+Statistics: scipy
 
-pr_commit_details.parquet
+Visualization: matplotlib, seaborn
 
-pr_task_type.parquet
+Data Access: Hugging Face Datasets (Parquet)
 
-Final Dataset Characteristics
+Platform: GitHub & GitHub Pages
 
-Total PRs: 859,377
+🚀 Getting Started
+1️⃣ Clone the Repository
+git clone https://github.com/NouhaAwachri/Mining-Software-Repositories-with-AIDev-dataset
+cd Mining-Software-Repositories-with-AIDev-dataset
 
-Time Range: January – August 2025
-
-Agents: OpenAI Codex, Copilot, Cursor, Devin, Claude Code
-
-Overall Acceptance Rate: 91.9%
-
-⚠️ Important Note
-Merged pull requests in AIDev are identified by a non-null merged_at timestamp, not by state == "merged":
-
-pr_df['is_merged'] = pr_df['merged_at'].notna().astype(int)
-
-🧪 Metrics Computed
-RQ1 – Acceptance & Review Dynamics
-
-Pull request acceptance rate
-
-Time to close (hours)
-
-Number of reviews
-
-Approval vs. change request ratios
-
-RQ2 – Pull Request Characteristics
-
-Description length (character count)
-
-Description length categories:
-
-Very Short (<100)
-
-Short (100–500)
-
-Medium (500–2000)
-
-Long (>2000)
-
-RQ3 – Context & Temporal Patterns
-
-Monthly pull request activity
-
-Repository popularity (star count)
-
-📈 Statistical Analysis
-
-Chi-Square Test: Acceptance rate differences between agents
-
-Kruskal–Wallis Test: Time-to-close comparison (non-parametric)
-
-Effect Size Analysis: Practical impact interpretation
-
-Key Findings
-
-Acceptance rates vary significantly (68.5%–93.8%, p < 0.001)
-
-Short descriptions (100–500 characters) achieve the highest acceptance rate (93.7%)
-
-OpenAI Codex dominates pull request volume and acceptance after May 2025
-
-📉 Visualizations
-
-The analysis produces publication-quality visualizations, including:
-
-Acceptance rate by agent
-
-Merged vs. rejected pull requests
-
-Time-to-close distributions
-
-Impact of description length on acceptance
-
-Temporal adoption trends of AI agents
-
-All figures feature:
-
-Clear labels and annotations
-
-Appropriate color schemes
-
-High-resolution output suitable for publication
-
-
-▶️ How to Run the Analysis
-1. Install Dependencies
+2️⃣ Install Dependencies
 pip install pandas numpy matplotlib seaborn scipy pyarrow
 
-2. Run the Script
+3️⃣ Run the Analysis
 python simple_aidev_analysis.py
 
-3. Outputs
+📊 Output
 
-Console: statistical summaries and test results
+📈 Statistical summaries printed in the console
 
-Figures: displayed interactively
+📉 Publication-quality visualizations
 
-CSV file: aidev_analysis_data.csv (859,377 rows)
+📁 aidev_analysis_data.csv (859K+ pull requests)
 
-⏱️ Expected runtime: less than 5 minutes
+⏱️ Expected runtime: < 5 minutes
 
 ⚠️ Limitations
 
@@ -162,21 +92,23 @@ Commit-level PR size metrics unavailable (missing PR linkage)
 
 Comment data not directly linked to pull requests
 
-Strong agent imbalance (OpenAI Codex = 88.6% of PRs)
+Strong agent imbalance (OpenAI Codex ≈ 88.6%)
 
 Correlational analysis only (no causal claims)
 
-All limitations are explicitly documented and discussed in the accompanying report.
+📊 Roadmap
 
-✅ Contributions & Impact
+✔️ Dataset loading & preprocessing
 
-This project provides:
+✔️ Acceptance and review metrics
 
-Researchers: Baseline metrics for AI coding agent studies
+✔️ Statistical testing
 
-Developers: Evidence-based agent comparison
+✔️ Visualization pipeline
 
-Tool Designers: Insights into effective pull request communication
+⏳ Extended repository-level analysis
+
+⏳ Cross-dataset validation
 
 📚 References
 
@@ -186,9 +118,7 @@ Hugging Face Dataset: https://huggingface.co/datasets/hao-li/AIDev
 
 MSR 2026 Challenge: https://2026.msrconf.org/track/msr-2026-mining-challenge
 
-Example Notebook: https://github.com/SAILResearch/AI_Teammates_in_SE3
-
 🧾 License & Usage
 
-This repository is intended for academic and research purposes under the MSR 2026 Mining Challenge.
-Please cite the original AIDev dataset and this work when reusing results.
+This project is intended for academic and research purposes under the MSR 2026 Mining Challenge.
+Please cite the AIDev dataset and this repository when reusing results.
