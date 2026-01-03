@@ -1,124 +1,221 @@
-🤖 AIDev Activity – Part 2
-AI Coding Agent Collaboration Analysis
+# 🤖 AIDev Activity – Part 2
 
-AIDev Activity – Part 2 is a large-scale empirical study analyzing how AI coding agents collaborate on GitHub.
-It investigates acceptance behavior, review dynamics, and adoption trends across 859K+ AI-generated pull requests using the AIDev dataset.
+<div align="center">
 
-📘 Mining Software Repositories – MSR 2026
-👩‍💻 Author: Nouha Aouachri
-📅 January 2026
+**AI Coding Agent Collaboration Analysis**
 
-📌 Project Overview
+*Mining Software Repositories – MSR 2026*
 
-Most software engineering studies focus on human developers.
-AIDev Activity – Part 2 shifts the focus to AI-generated pull requests, providing insights into how modern AI coding tools behave in real-world repositories.
+[![Author](https://img.shields.io/badge/Author-Nouha%20Aouachri-blue)](https://github.com/NouhaAwachri)
+[![Date](https://img.shields.io/badge/Date-January%202026-green)]()
+[![Dataset](https://img.shields.io/badge/Dataset-AIDev-orange)](https://huggingface.co/datasets/hao-li/AIDev)
+[![Python](https://img.shields.io/badge/Python-3.8+-yellow)]()
 
-The system leverages:
+</div>
 
-AIDev dataset (Hugging Face) for large-scale PR data 📦
+---
 
-Automated preprocessing & filtering of completed pull requests
+## 📖 About
 
-Acceptance & review metrics to compare AI agents ✅
+AIDev Activity – Part 2 is a **large-scale empirical study** analyzing how AI coding agents collaborate on GitHub. It investigates **acceptance behavior, review dynamics, and adoption trends** across more than **859,000 AI-generated pull requests** using the AIDev dataset.
 
-Statistical analysis to validate observed differences 📊
+> 💡 Most software engineering research focuses on human developers. This project shifts the focus to **AI-generated pull requests**, providing insights into how modern AI coding tools behave in real-world repositories.
 
-High-quality visualizations to reveal trends and patterns 📈
+---
 
-✨ Features
+## 🎯 Key Features
 
-🤖 Multi-Agent Analysis – OpenAI Codex, Copilot, Cursor, Devin, Claude Code
+<table>
+<tr>
+<td width="50%">
 
-✅ PR Acceptance Metrics – merged vs rejected pull requests
+### 🤖 Multi-Agent Analysis
+Comparison across major AI coding agents:
+- OpenAI Codex
+- GitHub Copilot
+- Cursor
+- Devin
+- Claude Code
 
-⏱️ Review & Closure Dynamics – time-to-close and review counts
+</td>
+<td width="50%">
 
-📝 PR Description Analysis – impact of description length on acceptance
+### ✅ PR Acceptance Metrics
+Deep dive into pull request outcomes:
+- Merged vs rejected PRs
+- Agent-specific acceptance rates
+- Repository patterns
 
-📈 Temporal Adoption Trends – monthly activity and agent dominance
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-📊 Statistical Validation – Chi-square and Kruskal–Wallis tests
+### ⏱️ Review Dynamics
+Temporal analysis including:
+- Time-to-close statistics
+- Review count distributions
+- Closure patterns
 
-🏗️ Analysis Pipeline
+</td>
+<td width="50%">
 
-AIDev Dataset (Hugging Face)
-↓
-Data Filtering & Cleaning (Jan–Aug 2025)
-↓
-Metric Computation (Acceptance, Time-to-Close, Descriptions)
-↓
-Statistical Analysis
-↓
-Visualization & Insights
+### 📝 Description Analysis
+Impact of PR descriptions on:
+- Acceptance likelihood
+- Review efficiency
+- Merge success rates
 
-⚙️ Tech Stack
+</td>
+</tr>
+</table>
 
-Language: Python 🐍
+### Additional Capabilities
 
-Data Processing: pandas, numpy
+- 📈 **Temporal Adoption Trends** – Track monthly activity and agent dominance over time
+- 📊 **Statistical Validation** – Chi-square and Kruskal–Wallis hypothesis testing
+- 🎨 **Publication-Quality Visualizations** – Clear, informative charts and graphs
 
-Statistics: scipy
+---
 
-Visualization: matplotlib, seaborn
+## 🏗️ Analysis Pipeline
 
-Data Access: Hugging Face Datasets (Parquet)
+```mermaid
+graph TD
+    A[AIDev Dataset - Hugging Face] --> B[Data Filtering & Cleaning]
+    B --> C[Jan-Aug 2025 Time Window]
+    C --> D[Metric Computation]
+    D --> E[Acceptance Rates]
+    D --> F[Time-to-Close]
+    D --> G[PR Descriptions]
+    E --> H[Statistical Analysis]
+    F --> H
+    G --> H
+    H --> I[Visualization & Insights]
+    I --> J[Research Findings]
+```
 
-Platform: GitHub & GitHub Pages
+---
 
-🚀 Getting Started
-1️⃣ Clone the Repository
+## ⚙️ Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Language** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) |
+| **Data Processing** | `pandas` • `numpy` • `pyarrow` |
+| **Statistics** | `scipy` |
+| **Visualization** | `matplotlib` • `seaborn` |
+| **Data Source** | Hugging Face Datasets (Parquet) |
+| **Platform** | GitHub • GitHub Pages |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.8 or higher
+- 4GB+ RAM recommended
+- Internet connection (for dataset download)
+
+### Installation
+
+**1. Clone the Repository**
+
+```bash
 git clone https://github.com/NouhaAwachri/Mining-Software-Repositories-with-AIDev-dataset
 cd Mining-Software-Repositories-with-AIDev-dataset
+```
 
-2️⃣ Install Dependencies
+**2. Install Dependencies**
+
+```bash
 pip install pandas numpy matplotlib seaborn scipy pyarrow
+```
 
-3️⃣ Run the Analysis
+*Or use requirements.txt:*
+
+```bash
+pip install -r requirements.txt
+```
+
+**3. Run the Analysis**
+
+```bash
 python simple_aidev_analysis.py
+```
 
-📊 Output
+### 📊 Expected Output
 
-📈 Statistical summaries printed in the console
+- ✅ Statistical summaries in console
+- 📈 Publication-quality visualizations
+- 💾 CSV file: `aidev_analysis_data.csv` (859K+ pull requests)
 
-📉 Publication-quality visualizations
+**Expected Runtime:** < 5 minutes on standard hardware
 
-📁 aidev_analysis_data.csv (859K+ pull requests)
+---
 
-⏱️ Expected runtime: < 5 minutes
+## 📁 Project Structure
 
-⚠️ Limitations
+```
+Mining-Software-Repositories-with-AIDev-dataset/
+├── simple_aidev_analysis.py    # Main analysis script
+├── aidev_analysis_data.csv     # Output dataset
+├── visualizations/             # Generated charts
+├── requirements.txt            # Python dependencies
+├── README.md                   # This file
+└── LICENSE                     # License information
+```
 
-Commit-level PR size metrics unavailable (missing PR linkage)
+---
 
-Comment data not directly linked to pull requests
+## ⚠️ Limitations
 
-Strong agent imbalance (OpenAI Codex ≈ 88.6%)
+> **Important Considerations**
 
-Correlational analysis only (no causal claims)
+- 🔗 **Commit-level PR size metrics unavailable** – Missing PR-to-commit linkage in dataset
+- 💬 **Comment data not directly linked** – Comments cannot be reliably associated with specific PRs
+- ⚖️ **Strong agent imbalance** – OpenAI Codex represents ≈88.6% of all PRs
+- 🔬 **Correlational analysis only** – No causal claims can be made from observations
 
-📊 Roadmap
+---
 
-✔️ Dataset loading & preprocessing
+## 🗺️ Roadmap
 
-✔️ Acceptance and review metrics
+| Status | Feature |
+|--------|---------|
+| ✅ | Dataset loading & preprocessing |
+| ✅ | Acceptance and review metrics |
+| ✅ | Statistical testing (Chi-square, Kruskal–Wallis) |
+| ✅ | Visualization pipeline |
+| ⏳ | Extended repository-level analysis |
+| ⏳ | Cross-dataset validation |
+| 📋 | Longitudinal trend analysis |
+| 📋 | Agent behavior clustering |
 
-✔️ Statistical testing
+---
 
-✔️ Visualization pipeline
+## 📚 References
 
-⏳ Extended repository-level analysis
+- **AIDev Dataset Paper:** [arXiv:2507.15003](https://arxiv.org/abs/2507.15003)
+- **Hugging Face Dataset:** [hao-li/AIDev](https://huggingface.co/datasets/hao-li/AIDev)
+- **MSR 2026 Challenge:** [Official Website](https://2026.msrconf.org/track/msr-2026-mining-challenge)
 
-⏳ Cross-dataset validation
+---
 
-📚 References
 
-AIDev Dataset Paper: https://arxiv.org/abs/2507.15003
+## 👤 Author
 
-Hugging Face Dataset: https://huggingface.co/datasets/hao-li/AIDev
+**Nouha Aouachri**
 
-MSR 2026 Challenge: https://2026.msrconf.org/track/msr-2026-mining-challenge
+- GitHub: [@NouhaAwachri](https://github.com/NouhaAwachri)
+- Project: [Mining Software Repositories with AIDev Dataset](https://github.com/NouhaAwachri/Mining-Software-Repositories-with-AIDev-dataset)
 
-🧾 License & Usage
+---
 
-This project is intended for academic and research purposes under the MSR 2026 Mining Challenge.
-Please cite the AIDev dataset and this repository when reusing results.
+## ⭐ Show Your Support
+
+Give a ⭐️ if this project helped you!
+
+---
+
